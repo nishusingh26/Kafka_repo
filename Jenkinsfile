@@ -1,9 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage('Deploy Kakfa Role') {
-            steps{
-               sh 'ansible-playbook -i kafka/aws_ec2.yml kafka/main.yml'
+        stage('Enter Kafka Folder') {
+            steps {
+                // Change directory to Kafka folder
+                dir('kafka') {
+                    // You can add additional steps if needed inside this stage
+                }
+            }
+        }
+        stage('Deploy Kafka Role') {
+            steps {
+                // Run Ansible playbook from within the Kafka folder
+                sh 'ansible-playbook -i aws_ec2.yml main.yml'
             }
         }
     }
