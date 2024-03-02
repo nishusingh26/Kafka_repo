@@ -1,0 +1,22 @@
+module "alb_module" {
+  source                            = "/home/govind/Documents/Terraform-module/module/alb"
+  alb_name                          = var.alb_name
+  internal                          = var.internal
+  security_groups                   = var.security_groups
+  subnets                           = var.subnets
+  enable_deletion_protection        = var.enable_deletion_protection
+  target_group_name                 = var.target_group_name
+  target_group_port                 = var.target_group_port
+  target_group_protocol             = var.target_group_protocol
+  vpc_id                            = var.vpc_id
+  health_check_path                 = var.health_check_path
+  health_check_protocol             = var.health_check_protocol
+  health_check_port                 = var.health_check_port
+  health_check_interval             = var.health_check_interval
+  health_check_timeout              = var.health_check_timeout
+  health_check_healthy_threshold    = var.health_check_healthy_threshold
+  health_check_unhealthy_threshold  = var.health_check_unhealthy_threshold
+  listener_port                     = var.listener_port
+  listener_protocol                 = var.listener_protocol
+  private_instance_ids              = var.private_instance_ids
+}
