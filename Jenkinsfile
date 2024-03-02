@@ -12,7 +12,7 @@ pipeline {
         stage('Deploy Kafka Role') {
             steps {
                 // Run Ansible playbook from within the Kafka folder
-                sh 'ansible-playbook -i aws_ec2.yml main.yml'
+                sh 'ansible-playbook -i aws_ec2.yml /var/lib/jenkins/workspace/kafka-deploy-new/kafka/main.yml'
             }
         }
     }
