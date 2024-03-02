@@ -1,18 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Enter Kafka Folder') {
+        stage('Deploy Kafka') {
             steps {
                 // Change directory to Kafka folder
                 dir('kafka') {
                     // You can add additional steps if needed inside this stage
+                      sh 'ansible-playbook main.yml'
                 }
-            }
-        }
-        stage('Deploy Kafka Role') {
-            steps {
-                // Run Ansible playbook from within the Kafka folder
-                sh 'ansible-playbook main.yml'
             }
         }
     }
